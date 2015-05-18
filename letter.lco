@@ -1,0 +1,76 @@
+%encoding: uft8
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{fixltx2e}
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{setspace}
+\usepackage{ellipsis}
+
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+
+\usepackage{textcomp}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{eurosym}
+\usepackage{booktabs}
+
+\usepackage{url}
+\usepackage[a4paper, bookmarks=false, bookmarksopen=false, bookmarksnumbered=true, pdfauthor={Max Mustermann}, pdftitle={Brief}, colorlinks, linkcolor=black, urlcolor=black]{hyperref}
+
+\ProvidesFile{letter.lco}[2013-09-02 lco (DSIW)]
+\KOMAoptions{foldmarks=true,foldmarks=H,pagenumber=false,draft=false,paper=a4,fontsize=11pt,
+  pagenumber=false,parskip=half,backaddress=true,fromalign=right,firsthead=true,fromrule=false,
+  fromemail=true,fromurl=false,fromlogo=false,fromphone=true}
+
+%\setkomavar{fromlogo}{%
+%\includegraphics{musterlogo}}
+
+\setkomavar{fromname}{Max Mustermann}
+
+\setkomavar{place}{Musterstadt}
+\setkomavar{fromaddress}{Musterstraße.~1\\12345~\usekomavar{place}}
+%\setkomavar{location}{%\raggedright
+%\usekomavar{fromname}\\
+%\setkomavar{yourref}{AZ: 294 788 717 3}
+%\setkomavar{yourmail}{20.07.2011}
+%\usekomavar{fromaddress}\\
+%\usekomavar*{fromphone}~\usekomavar{fromphone}\\
+%\usekomavar*{fromemail}~\usekomavar{fromemail}\\
+%}
+
+\setkomavar{backaddressseparator}{ $\cdot$ }
+%\setkomavar{placeseparator}{, }
+
+\setkomavar{fromphone}{+49\,(0)\,176~/~12\,34\,56\,78}
+\setkomavar{fromemail}{\href{mailto:email@example.com}{\nolinkurl{email@example.com}}}
+\setkomavar{frombank}{Kontonummer:~123\,456\,789 $\cdot$ BLZ:~100\,000\,00 $\cdot$ Deutsche Bank}
+
+\setkomavar{signature}{\usekomavar{fromname}}
+%\renewcommand*{\raggedsignature}{\raggedright}
+
+%\areaset[0cm]{170mm}{27cm}
+
+% firstfootvpos has to have more space to the bottom
+\@setplength{firstfootvpos}{\paperheight}
+\@addtoplength[-]{firstfootvpos}{15mm}
+
+%\@setplength{firstheadhpos}{12mm}
+\@setplength{firstheadhpos}{20mm}
+
+\title{Brief}
+\author{Max Mustermann}
+
+% footer
+\firstfoot{
+  \parbox[t]{\textwidth}{\footnotesize
+    \vfill
+      \begin{center}
+    \usekomavar*{frombank}: \quad \usekomavar{frombank}
+    \end{center}
+  }
+}
